@@ -31,7 +31,12 @@ namespace ITeam.DotnetCore.WebApi
             services.AddScoped<IProductService, FakeProductService>();
             services.AddScoped<ProductFaker>();
 
-            services.AddControllers();
+            services.AddControllers()
+                //.AddJsonOptions(options =>
+                //{
+                //    options.JsonSerializerOptions.lop
+                //})
+                .AddXmlSerializerFormatters();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -4,7 +4,8 @@ using System.Text;
 
 namespace ITeam.DotnetCore.Models.SearchCriterias
 {
-    public class ProductSearchCriteria
+
+    public class ProductSearchCriteria : SearchCriteria
     {
         public string Name { get; set; }
         public string Color { get; set; }

@@ -2,6 +2,7 @@
 using ITeam.DotnetCore.Models;
 using ITeam.DotnetCore.Models.SearchCriterias;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -22,7 +23,7 @@ namespace ITeam.DotnetCore.WebApi.Controllers
             this.productService = productService;
         }
 
-        [HttpGet]
+        [HttpGet("{format?}"), FormatFilter]
         public IActionResult Get()
         {
             ICollection<Product> products = productService.Get();
@@ -80,11 +81,13 @@ namespace ITeam.DotnetCore.WebApi.Controllers
         }
 
 
-        [HttpGet]
-        public IActionResult Get([FromQuery] ProductSearchCriteria searchCriteria)
-        {
-            throw new NotImplementedException();
-        }
+        //[HttpGet]
+        //public IActionResult Get([FromQuery] ProductSearchCriteria searchCriteria)
+        //{
+        //    var products = productService.Get(searchCriteria);
+
+        //    return Ok(products);
+        //}
 
     }
 }
