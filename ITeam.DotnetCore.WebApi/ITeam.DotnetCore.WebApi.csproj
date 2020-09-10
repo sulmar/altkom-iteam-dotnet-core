@@ -13,6 +13,7 @@
     <ProjectReference Include="..\ITeam.DotnetCore.FakeServices\ITeam.DotnetCore.FakeServices.csproj" />
     <ProjectReference Include="..\ITeam.DotnetCore.IServices\ITeam.DotnetCore.IServices.csproj" />
     <ProjectReference Include="..\ITeam.DotnetCore.Models\ITeam.DotnetCore.Models.csproj" />
+    <ProjectReference Include="..\ITeam.DotnetCore.Validators\ITeam.DotnetCore.Validators.csproj" />
   </ItemGroup>
 
 
