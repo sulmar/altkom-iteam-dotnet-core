@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ITeam.DotnetCore.Faker\ITeam.DotnetCore.Faker.csproj" />
     <ProjectReference Include="..\ITeam.DotnetCore.IServices\ITeam.DotnetCore.IServices.csproj" />
   </ItemGroup>
 
