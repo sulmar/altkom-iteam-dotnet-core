@@ -4,6 +4,7 @@ using System;
 
 namespace ITeam.DotnetCore.Faker
 {
+    // dotnet add package Bogus
     public class ProductFaker : Faker<Product>
     {
         public ProductFaker()

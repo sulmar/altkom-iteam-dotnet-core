@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ITeam.DotnetCore.Models.Validators
 {
+    // dotnet add package FluentValidation
     public class ProductValidator : AbstractValidator<Product>
     {
         public ProductValidator()

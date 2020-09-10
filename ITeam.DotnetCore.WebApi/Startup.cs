@@ -30,6 +30,8 @@ namespace ITeam.DotnetCore.WebApi
 
             // services.AddTransient<IValidator<Product>, ProductValidator>();
 
+            // dotnet add package FluentValidation.AspNetCore
+
             services.AddControllers()
                 .AddFluentValidation(options => options.RegisterValidatorsFromAssemblyContaining<ProductValidator>())
 
