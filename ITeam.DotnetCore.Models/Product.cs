@@ -1,4 +1,6 @@
-﻿namespace ITeam.DotnetCore.Models
+﻿using System.Runtime.CompilerServices;
+
+namespace ITeam.DotnetCore.Models
 {
     public abstract class Item : BaseEntity
     {

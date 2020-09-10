@@ -15,6 +15,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 using ITeam.DotnetCore.WebApi.Middlewares;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using ITeam.DotnetCore.Models;
+using ITeam.DotnetCore.Models.Validators;
 
 namespace ITeam.DotnetCore.WebApi
 {
@@ -33,7 +37,12 @@ namespace ITeam.DotnetCore.WebApi
             services.AddScoped<IProductService, FakeProductService>();
             services.AddScoped<ProductFaker>();
 
+            // services.AddTransient<IValidator<Product>, ProductValidator>();
+
             services.AddControllers()
+                .AddFluentValidation(options => options.RegisterValidatorsFromAssemblyContaining<ProductValidator>())
+
+
                 //.AddJsonOptions(options =>
                 //{
                 //    options.JsonSerializerOptions.lop

@@ -56,6 +56,11 @@ namespace ITeam.DotnetCore.WebApi.Controllers
         [HttpPost]
         public IActionResult Post(Product product)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             productService.Add(product);
 
             return CreatedAtRoute(nameof(Get), new { Id = product.Id }, product);
