@@ -13,6 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
+using ITeam.DotnetCore.WebApi.Middlewares;
 
 namespace ITeam.DotnetCore.WebApi
 {
@@ -55,6 +57,12 @@ namespace ITeam.DotnetCore.WebApi
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.Map("/api/customers", context => context.Response.WriteAsync("Hello Customers"));
+
+                endpoints.Map("/dashboard", endpoints.CreateApplicationBuilder()
+                    .UseMiddleware<ProductsMiddleware>()
+                    .Build());
+
                 endpoints.MapControllers();
             });
         }

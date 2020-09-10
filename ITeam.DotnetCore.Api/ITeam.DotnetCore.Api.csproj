@@ -5,14 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ITeam.DotnetCore.FakeServices\ITeam.DotnetCore.FakeServices.csproj" />
     <ProjectReference Include="..\ITeam.DotnetCore.IServices\ITeam.DotnetCore.IServices.csproj" />
-    <ProjectReference Include="..\ITeam.DotnetCore.Models\ITeam.DotnetCore.Models.csproj" />
   </ItemGroup>
-
 
 </Project>

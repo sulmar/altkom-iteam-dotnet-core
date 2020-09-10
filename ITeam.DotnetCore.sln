@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITeam.DotnetCore.Faker", "I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITeam.DotnetCore.WebApi", "ITeam.DotnetCore.WebApi\ITeam.DotnetCore.WebApi.csproj", "{2616F494-5B24-447C-A63B-1B5FDF2D359B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITeam.DotnetCore.Api", "ITeam.DotnetCore.Api\ITeam.DotnetCore.Api.csproj", "{44114EBB-01F3-4BEA-9B92-75507FD49A90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2616F494-5B24-447C-A63B-1B5FDF2D359B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2616F494-5B24-447C-A63B-1B5FDF2D359B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2616F494-5B24-447C-A63B-1B5FDF2D359B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44114EBB-01F3-4BEA-9B92-75507FD49A90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44114EBB-01F3-4BEA-9B92-75507FD49A90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44114EBB-01F3-4BEA-9B92-75507FD49A90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44114EBB-01F3-4BEA-9B92-75507FD49A90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
