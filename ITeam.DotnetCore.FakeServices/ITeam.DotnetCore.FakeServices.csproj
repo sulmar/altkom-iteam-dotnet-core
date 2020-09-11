@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ITeam.DotnetCore.Faker\ITeam.DotnetCore.Faker.csproj" />
     <ProjectReference Include="..\ITeam.DotnetCore.IServices\ITeam.DotnetCore.IServices.csproj" />
   </ItemGroup>

@@ -20,6 +20,9 @@ using Microsoft.AspNetCore.Authorization;
 using ITeam.DotnetCore.WebApi.HealthCheckers;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using HealthChecks.UI.Client;
+using Microsoft.Extensions.Options;
+using System.Threading;
+using System;
 
 namespace ITeam.DotnetCore.WebApi
 {
@@ -40,6 +43,20 @@ namespace ITeam.DotnetCore.WebApi
             services.AddScoped<Faker<Customer>, CustomerFaker>();
 
             services.AddScoped<IServices.IAuthorizationService, FakeCustomerService>();
+
+            // var options = Options.Create(new FakeProductServiceOptions { Count = 10 });
+            // Configuration.GetSection("Products").Bind(options);
+
+            services.Configure<FakeProductServiceOptions>(Configuration.GetSection("Products"));
+
+            // Action<FakeProductServiceOptions> options = o => Options.Create(new FakeProductServiceOptions { Count = 10 });
+
+            //Action<FakeProductServiceOptions> options = o => 
+            //{
+            //    o.Count = 10;
+            //};
+
+            // services.Configure(options);
 
             services.AddAuthentication("Basic")
                 .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("Basic", null);
@@ -90,6 +107,13 @@ namespace ITeam.DotnetCore.WebApi
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            string smsApiUrl = Configuration["SmsApiUrl"];
+
+            string smsApiLimit = Configuration["SmsApi:Limit"];
+
+
+            string googleSecretKey = Configuration["google-secret-key"];
 
             app.UseEndpoints(endpoints =>
             {

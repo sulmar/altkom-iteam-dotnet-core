@@ -1,22 +1,19 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>0cd6b301-baba-47d8-9af8-5775cb7a9536</UserSecretsId>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="3.1.1" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="3.1.1" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="9.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.8" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\ITeam.DotnetCore.FakeServices\ITeam.DotnetCore.FakeServices.csproj" />
     <ProjectReference Include="..\ITeam.DotnetCore.IServices\ITeam.DotnetCore.IServices.csproj" />
     <ProjectReference Include="..\ITeam.DotnetCore.Models\ITeam.DotnetCore.Models.csproj" />
     <ProjectReference Include="..\ITeam.DotnetCore.Validators\ITeam.DotnetCore.Validators.csproj" />
   </ItemGroup>
-
-
 </Project>

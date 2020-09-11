@@ -3,6 +3,7 @@ using ITeam.DotnetCore.Faker;
 using ITeam.DotnetCore.IServices;
 using ITeam.DotnetCore.Models;
 using ITeam.DotnetCore.Models.SearchCriterias;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,11 +13,19 @@ using System.Text.RegularExpressions;
 namespace ITeam.DotnetCore.FakeServices
 {
 
+    public class FakeProductServiceOptions
+    {
+        public int Count { get; set; }
+        public string Url { get; set; }
+    }
+
     public class FakeProductService : FakeEntityService<Product>, IProductService
     {
-        public FakeProductService(Faker<Product> productFaker)
+
+        // dotnet add package Microsoft.Extensions.Options
+        public FakeProductService(Faker<Product> productFaker, IOptions<FakeProductServiceOptions> options)
         {
-            entities = productFaker.Generate(100);
+            entities = productFaker.Generate(options.Value.Count);
         }
 
         public Product Get(string barcode)
