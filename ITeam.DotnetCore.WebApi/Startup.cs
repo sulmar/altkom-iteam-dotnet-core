@@ -11,6 +11,10 @@ using ITeam.DotnetCore.WebApi.Middlewares;
 using FluentValidation.AspNetCore;
 using ITeam.DotnetCore.Models.Validators;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authentication;
+using ITeam.DotnetCore.WebApi.Handlers;
+using Bogus;
+using ITeam.DotnetCore.Models;
 
 namespace ITeam.DotnetCore.WebApi
 {
@@ -27,7 +31,13 @@ namespace ITeam.DotnetCore.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IProductService, FakeProductService>();
-            services.AddScoped<ProductFaker>();
+            services.AddScoped<Faker<Product>, ProductFaker>();
+            services.AddScoped<Faker<Customer>, CustomerFaker>();
+
+            services.AddScoped<IAuthorizationService, FakeCustomerService>();
+
+            services.AddAuthentication("Basic")
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("Basic", null);
 
             // services.AddTransient<IValidator<Product>, ProductValidator>();
 
@@ -54,6 +64,7 @@ namespace ITeam.DotnetCore.WebApi
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

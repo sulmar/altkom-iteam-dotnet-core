@@ -1,4 +1,5 @@
-﻿using ITeam.DotnetCore.Faker;
+﻿using Bogus;
+using ITeam.DotnetCore.Faker;
 using ITeam.DotnetCore.IServices;
 using ITeam.DotnetCore.Models;
 using ITeam.DotnetCore.Models.SearchCriterias;
@@ -13,7 +14,7 @@ namespace ITeam.DotnetCore.FakeServices
 
     public class FakeProductService : FakeEntityService<Product>, IProductService
     {
-        public FakeProductService(ProductFaker productFaker)
+        public FakeProductService(Faker<Product> productFaker)
         {
             entities = productFaker.Generate(100);
         }

@@ -1,12 +1,16 @@
 ﻿using ITeam.DotnetCore.IServices;
 using ITeam.DotnetCore.Models;
 using ITeam.DotnetCore.Models.SearchCriterias;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.Win32.SafeHandles;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Security.Claims;
+using System.Security.Principal;
 using System.Threading.Tasks;
 
 namespace ITeam.DotnetCore.WebApi.Controllers
@@ -14,6 +18,7 @@ namespace ITeam.DotnetCore.WebApi.Controllers
 
     [Route("api/products")]
     [ApiController]
+    [Authorize(Roles = "Trainer, Developer")]
     public class ProductsController : ControllerBase
     {
         private readonly IProductService productService;
@@ -23,12 +28,32 @@ namespace ITeam.DotnetCore.WebApi.Controllers
             this.productService = productService;
         }
 
+     //   [AllowAnonymous]
         [HttpGet("{format?}"), FormatFilter]
         public IActionResult Get()
         {
-            ICollection<Product> products = productService.Get();
+            if (User.IsInRole("Trainer"))
+            {
 
-            return Ok(products);
+            }
+
+            if (User.HasClaim(p=>p.Type == ClaimTypes.Email))
+            {
+                string email = User.FindFirst(ClaimTypes.Email).Value;
+
+                // TODO: send email
+            }
+
+            if (this.User.Identity.IsAuthenticated)
+            {
+                ICollection<Product> products = productService.Get();
+
+                return Ok(products);
+            }
+            else
+            {
+                return Unauthorized();
+            }
         }
 
         [HttpGet("{id:int}", Name = nameof(Get))]
@@ -62,6 +87,10 @@ namespace ITeam.DotnetCore.WebApi.Controllers
             }
 
             productService.Add(product);
+
+            // 1. ...
+            // 2. ...
+            // 3. ...
 
             return CreatedAtRoute(nameof(Get), new { Id = product.Id }, product);
         }
