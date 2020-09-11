@@ -23,6 +23,7 @@ using HealthChecks.UI.Client;
 using Microsoft.Extensions.Options;
 using System.Threading;
 using System;
+using Microsoft.AspNetCore.ResponseCompression;
 
 namespace ITeam.DotnetCore.WebApi
 {
@@ -76,9 +77,28 @@ namespace ITeam.DotnetCore.WebApi
             services.AddHealthChecks()
                 .AddCheck<RandomHealthCheck>("random");
 
+            // dotnet add package Microsoft.AspNetCore.ResponseCompression
+            services.Configure<GzipCompressionProviderOptions>(options => 
+            {
+                options.Level = System.IO.Compression.CompressionLevel.Optimal;
+            });
+
+            services.Configure<BrotliCompressionProviderOptions>(options =>
+            {
+                options.Level = System.IO.Compression.CompressionLevel.Optimal;
+            });
+
+            services.AddResponseCompression(options =>
+            {
+                options.EnableForHttps = true;
+                options.Providers.Add<GzipCompressionProvider>();
+                options.Providers.Add<BrotliCompressionProvider>();
+            });
+
+
             // dotnet add package AspNetCore.HealthChecks.UI
 
-         //   services.AddHealthChecksUI();
+            //   services.AddHealthChecksUI();
 
             // services.AddTransient<IValidator<Product>, ProductValidator>();
 
@@ -102,6 +122,10 @@ namespace ITeam.DotnetCore.WebApi
             }
 
             app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
+
+            app.UseResponseCompression();
 
             app.UseRouting();
 

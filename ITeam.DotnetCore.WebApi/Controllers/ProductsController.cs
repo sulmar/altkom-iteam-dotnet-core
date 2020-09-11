@@ -4,6 +4,7 @@ using ITeam.DotnetCore.Models.SearchCriterias;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Win32.SafeHandles;
 using System;
 using System.Collections.Generic;
