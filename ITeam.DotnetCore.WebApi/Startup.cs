@@ -17,6 +17,9 @@ using Bogus;
 using ITeam.DotnetCore.Models;
 using ITeam.DotnetCore.WebApi.Requirements;
 using Microsoft.AspNetCore.Authorization;
+using ITeam.DotnetCore.WebApi.HealthCheckers;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using HealthChecks.UI.Client;
 
 namespace ITeam.DotnetCore.WebApi
 {
@@ -45,9 +48,20 @@ namespace ITeam.DotnetCore.WebApi
             {
                 options.AddPolicy("AtLeast18", policy =>
                     policy.Requirements.Add(new MinimumAgeRequirement(18)));
+
+                options.AddPolicy("AtLeast7", policy =>
+                   policy.Requirements.Add(new MinimumAgeRequirement(7)));
             });
 
               services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();
+
+
+            services.AddHealthChecks()
+                .AddCheck<RandomHealthCheck>("random");
+
+            // dotnet add package AspNetCore.HealthChecks.UI
+
+         //   services.AddHealthChecksUI();
 
             // services.AddTransient<IValidator<Product>, ProductValidator>();
 
@@ -77,8 +91,6 @@ namespace ITeam.DotnetCore.WebApi
             app.UseAuthentication();
             app.UseAuthorization();
 
-
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.Map("/api/customers", context => context.Response.WriteAsync("Hello Customers"));
@@ -86,6 +98,16 @@ namespace ITeam.DotnetCore.WebApi
                 endpoints.Map("/dashboard", endpoints.CreateApplicationBuilder()
                     .UseMiddleware<ProductsMiddleware>()
                     .Build());
+
+
+                endpoints.MapHealthChecks("/health", new HealthCheckOptions()
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                }
+                );
+
+              // endpoints.MapHealthChecksUI();
 
                 endpoints.MapControllers();
             });
