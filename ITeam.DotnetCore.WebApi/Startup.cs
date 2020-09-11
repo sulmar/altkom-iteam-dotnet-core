@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using ITeam.DotnetCore.WebApi.Middlewares;
 using FluentValidation.AspNetCore;
 using ITeam.DotnetCore.Models.Validators;
+using Newtonsoft.Json;
 
 namespace ITeam.DotnetCore.WebApi
 {
@@ -34,12 +35,10 @@ namespace ITeam.DotnetCore.WebApi
 
             services.AddControllers()
                 .AddFluentValidation(options => options.RegisterValidatorsFromAssemblyContaining<ProductValidator>())
-
-
-                //.AddJsonOptions(options =>
-                //{
-                //    options.JsonSerializerOptions.lop
-                //})
+                .AddNewtonsoftJson(o =>
+                {
+                    o.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                })
                 .AddXmlSerializerFormatters();
         }
 
