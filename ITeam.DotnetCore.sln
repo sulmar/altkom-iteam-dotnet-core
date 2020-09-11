@@ -3,19 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITeam.DotnetCore.Models", "ITeam.DotnetCore.Models\ITeam.DotnetCore.Models.csproj", "{974C9010-C751-42D3-9C0C-CBD7E55DBE7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITeam.DotnetCore.Models", "ITeam.DotnetCore.Models\ITeam.DotnetCore.Models.csproj", "{974C9010-C751-42D3-9C0C-CBD7E55DBE7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITeam.DotnetCore.IServices", "ITeam.DotnetCore.IServices\ITeam.DotnetCore.IServices.csproj", "{FCFE37B2-DA12-4A29-A7D4-75811C7FBBDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITeam.DotnetCore.IServices", "ITeam.DotnetCore.IServices\ITeam.DotnetCore.IServices.csproj", "{FCFE37B2-DA12-4A29-A7D4-75811C7FBBDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITeam.DotnetCore.FakeServices", "ITeam.DotnetCore.FakeServices\ITeam.DotnetCore.FakeServices.csproj", "{61C0EAAD-F84E-4BBC-A49C-2DD92FA4C320}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITeam.DotnetCore.FakeServices", "ITeam.DotnetCore.FakeServices\ITeam.DotnetCore.FakeServices.csproj", "{61C0EAAD-F84E-4BBC-A49C-2DD92FA4C320}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITeam.DotnetCore.Faker", "ITeam.DotnetCore.Faker\ITeam.DotnetCore.Faker.csproj", "{8D569F83-AD2C-4EA4-A907-886B6C44EF09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITeam.DotnetCore.Faker", "ITeam.DotnetCore.Faker\ITeam.DotnetCore.Faker.csproj", "{8D569F83-AD2C-4EA4-A907-886B6C44EF09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITeam.DotnetCore.WebApi", "ITeam.DotnetCore.WebApi\ITeam.DotnetCore.WebApi.csproj", "{2616F494-5B24-447C-A63B-1B5FDF2D359B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITeam.DotnetCore.WebApi", "ITeam.DotnetCore.WebApi\ITeam.DotnetCore.WebApi.csproj", "{2616F494-5B24-447C-A63B-1B5FDF2D359B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITeam.DotnetCore.Api", "ITeam.DotnetCore.Api\ITeam.DotnetCore.Api.csproj", "{44114EBB-01F3-4BEA-9B92-75507FD49A90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITeam.DotnetCore.Api", "ITeam.DotnetCore.Api\ITeam.DotnetCore.Api.csproj", "{44114EBB-01F3-4BEA-9B92-75507FD49A90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITeam.DotnetCore.Validators", "ITeam.DotnetCore.Validators\ITeam.DotnetCore.Validators.csproj", "{4E19BFA2-265A-45AD-9F20-1F5C914209D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITeam.DotnetCore.Validators", "ITeam.DotnetCore.Validators\ITeam.DotnetCore.Validators.csproj", "{4E19BFA2-265A-45AD-9F20-1F5C914209D2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITeam.DotnetCore.SignalRApi", "ITeam.DotnetCore.SignalRApi\ITeam.DotnetCore.SignalRApi.csproj", "{96D1246E-1412-43F8-96AE-B919AA6218A9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITeam.DotnetCore.SenderConsoleClient", "ITeam.DotnetCore.SenderConsoleClient\ITeam.DotnetCore.SenderConsoleClient.csproj", "{5B677C1A-7039-4B91-9CA0-862E477DDCE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITeam.DotnetCore.ReceivedConsoleClient", "ITeam.DotnetCore.ReceivedConsoleClient\ITeam.DotnetCore.ReceivedConsoleClient.csproj", "{CB662D20-0F03-4790-93DC-EC0EED11004B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +57,18 @@ Global
 		{4E19BFA2-265A-45AD-9F20-1F5C914209D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E19BFA2-265A-45AD-9F20-1F5C914209D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E19BFA2-265A-45AD-9F20-1F5C914209D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D1246E-1412-43F8-96AE-B919AA6218A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D1246E-1412-43F8-96AE-B919AA6218A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D1246E-1412-43F8-96AE-B919AA6218A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D1246E-1412-43F8-96AE-B919AA6218A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B677C1A-7039-4B91-9CA0-862E477DDCE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B677C1A-7039-4B91-9CA0-862E477DDCE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B677C1A-7039-4B91-9CA0-862E477DDCE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B677C1A-7039-4B91-9CA0-862E477DDCE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB662D20-0F03-4790-93DC-EC0EED11004B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB662D20-0F03-4790-93DC-EC0EED11004B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB662D20-0F03-4790-93DC-EC0EED11004B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB662D20-0F03-4790-93DC-EC0EED11004B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
