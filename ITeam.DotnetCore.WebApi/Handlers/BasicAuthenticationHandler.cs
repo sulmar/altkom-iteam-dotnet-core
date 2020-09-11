@@ -58,11 +58,13 @@ namespace ITeam.DotnetCore.WebApi.Handlers
 
                 Claim phoneClaim = new Claim(ClaimTypes.MobilePhone, "555-666-777");
                 Claim emailClaim = new Claim(ClaimTypes.Email, customer.Email);
+                Claim dateOfBirthClaim = new Claim(ClaimTypes.DateOfBirth, customer.DateOfBirth.ToString("yyyy-MM-dd"));
 
                 identity.AddClaim(claim1);
                 identity.AddClaim(roleClaim1);
                 identity.AddClaim(roleClaim2);
                 identity.AddClaim(emailClaim);
+                identity.AddClaim(dateOfBirthClaim);
 
                 
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);

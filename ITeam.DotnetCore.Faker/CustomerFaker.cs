@@ -15,7 +15,7 @@ namespace ITeam.DotnetCore.Faker
             RuleFor(p => p.FirstName, f => f.Person.FirstName);
             RuleFor(p => p.LastName, f => f.Person.LastName);
             RuleFor(p => p.UserName, f => f.Person.UserName);
-
+            RuleFor(p => p.DateOfBirth, f => f.Person.DateOfBirth);
             // john.smith@iteam.pl
             RuleFor(p => p.Email, (f, c)  => $"{c.FirstName}.{c.LastName}@iteam.pl");
             RuleFor(p => p.HashedPassword, "1234");

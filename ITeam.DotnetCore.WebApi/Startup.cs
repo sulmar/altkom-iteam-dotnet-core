@@ -15,6 +15,8 @@ using Microsoft.AspNetCore.Authentication;
 using ITeam.DotnetCore.WebApi.Handlers;
 using Bogus;
 using ITeam.DotnetCore.Models;
+using ITeam.DotnetCore.WebApi.Requirements;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ITeam.DotnetCore.WebApi
 {
@@ -34,10 +36,18 @@ namespace ITeam.DotnetCore.WebApi
             services.AddScoped<Faker<Product>, ProductFaker>();
             services.AddScoped<Faker<Customer>, CustomerFaker>();
 
-            services.AddScoped<IAuthorizationService, FakeCustomerService>();
+            services.AddScoped<IServices.IAuthorizationService, FakeCustomerService>();
 
             services.AddAuthentication("Basic")
                 .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("Basic", null);
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("AtLeast18", policy =>
+                    policy.Requirements.Add(new MinimumAgeRequirement(18)));
+            });
+
+              services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();
 
             // services.AddTransient<IValidator<Product>, ProductValidator>();
 
@@ -66,6 +76,8 @@ namespace ITeam.DotnetCore.WebApi
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+
 
             app.UseEndpoints(endpoints =>
             {

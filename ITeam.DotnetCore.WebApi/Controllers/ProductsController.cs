@@ -78,6 +78,7 @@ namespace ITeam.DotnetCore.WebApi.Controllers
             return Ok(product);
         }
 
+        [Authorize(Policy = "AtLeast18")]
         [HttpPost]
         public IActionResult Post(Product product)
         {
